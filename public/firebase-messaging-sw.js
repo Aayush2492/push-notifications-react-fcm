@@ -2,7 +2,6 @@ importScripts("https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js");
 //importScripts("https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js");
 //importScripts("https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js");
-//importScripts('/__/firebase/init.js');
 
 firebase.initializeApp({
   messagingSenderId: "875322368660",
@@ -14,8 +13,6 @@ self.addEventListener("push", (event) => {
   const title = event.data.json().notification.title;
   const body = event.data.json().notification.body;
 
-  console.log("push", event);
-  console.log("push", event.data.json());
   console.log("push", event.data.json().notification);
   console.log("Title: ", title);
   console.log("Body: ", body);
