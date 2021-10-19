@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import app from "./firebase";
+import React, { Component } from "react";
+import { getMessaging, getToken } from "firebase/messaging";
+
+export default class App extends Component {
+  componentDidMount() {
+    const messaging = getMessaging(app);
+
+    console.log(messaging);
+
+    getToken(messaging, {
+      vapidKey:
+        "BLlXu8xBAdIUSLGXLBET_eSF1v53PsP45bHCkHq2xyhZaB-1bPfGEiobvCUEjHmwolgySCA6EHJHAckiXihy8Y0",
+    })
+      .then((currentToken) => {
+        console.log("Get Token promise satisfied");
+        if (currentToken) {
+          console.log(currentToken);
+        } else {
+          console.log(
+            "No registration token available. Request permission to generate one."
+          );
+        }
+      })
+      .catch((err) => {
+        console.log("An error occurred while retrieving token. ", err);
+      });
+  }
+  render() {
+    return (
+      <div className="App">
+        {" "}
+        <h1>HELLo</h1>
+      </div>
+    );
+  }
 }
-
-export default App;
