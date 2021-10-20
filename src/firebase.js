@@ -2,23 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getMessaging, onMessage } from "firebase/messaging";
 import { onBackgroundMessage } from "firebase/messaging/sw";
 
-/*const firebaseConfig = {
-  apiKey: "AIzaSyD7Da_o45oxwbT-1xqh9-808HwxlPIWWwo",
-  authDomain: "sunshine-iith-mha-app.firebaseapp.com",
-  projectId: "sunshine-iith-mha-app",
-  storageBucket: "sunshine-iith-mha-app.appspot.com",
-  messagingSenderId: "711720827718",
-  appId: "1:711720827718:web:2eb43a20ba8c738c9f8347",
-  measurementId: "G-TRNDSXLTXQ",
-};*/
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCWAYZGnPnFX8RyQTGb3muwnCeNArYSedw",
-  authDomain: "test-push-notifications-7d87a.firebaseapp.com",
-  projectId: "test-push-notifications-7d87a",
-  storageBucket: "test-push-notifications-7d87a.appspot.com",
-  messagingSenderId: "875322368660",
-  appId: "1:875322368660:web:ce6100a97bae9a8ea94a81",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

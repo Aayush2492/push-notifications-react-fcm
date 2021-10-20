@@ -4,7 +4,7 @@ importScripts("https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js");
 //importScripts("https://www.gstatic.com/firebasejs/5.5.6/firebase-messaging.js");
 
 firebase.initializeApp({
-  messagingSenderId: "875322368660",
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 });
 
 const messaging = firebase.messaging();
